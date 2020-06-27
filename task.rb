@@ -97,8 +97,7 @@ def q11
 
   # 以下に回答を記載
   puts "ユーザーの趣味一覧"
-  newsports = sports.flatten.uniq
-  newsports.each.with_index(1) do |newsports, i|
+  sports.flatten.uniq.each.with_index(1) do |newsports, i|
     puts "No.#{i} #{newsports}"
   end
 end
@@ -115,8 +114,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data[:age] = 32
-  user_data[:address] = "沖縄"
+  user_data.store(:age, 32)
+  user_data.store(:address, "沖縄" )
   puts user_data
 end
 
@@ -124,7 +123,9 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  data.each_key do |key|
+    puts "キー : #{key}"
+  end
 end
 
 def q15
@@ -132,7 +133,14 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+  if data1[:age]
+    puts "OK"
+  end
+  if data2[:age]
+    puts "OK"
+  else
+    puts "NO"
+  end  
 end
 
 def q16
@@ -144,7 +152,9 @@ def q16
   ]
 
   # 以下に回答を記載
-
+  users.each do |newuser|
+    puts "私の名前は#{newuser[:name]}です。年齢は#{newuser[:age]}です。"
+  end
 end
 
 class UserQ17
