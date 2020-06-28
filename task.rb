@@ -114,8 +114,7 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data.store(:age, 32)
-  user_data.store(:address, "沖縄" )
+  user_data.update( age: 32 , address: "沖縄" )
   puts user_data
 end
 
@@ -133,14 +132,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  if data1[:age]
-    puts "OK"
-  end
-  if data2[:age]
-    puts "OK"
-  else
-    puts "NO"
-  end  
+  puts data1.has_key?(:age) ? "OK" : "NO"
+  puts data2.has_key?(:age) ? "OK" : "NO"
 end
 
 def q16
